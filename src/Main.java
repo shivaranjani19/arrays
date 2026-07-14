@@ -199,6 +199,19 @@ class array10 {
 //        for (int num : arr) {
 //            System.out.print(num + " ");
 //        }
+
+//        class Solution {
+//            public void rotate(int[] arr) {
+//                int n = arr.length;
+//                int temp = arr[n - 1];              // save LAST element this time
+//
+//                for (int i = n - 1; i > 0; i--) {
+//                    arr[i] = arr[i - 1];             // shift each element RIGHT
+//                }
+//
+//                arr[0] = temp;                       // place saved element at front
+//            }
+//        }
                 int[] arr = {1, 2, 3, 4, 5};
                 int n = arr.length;
 
