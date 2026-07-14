@@ -1,6 +1,5 @@
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.HashSet;
+import java.util.*;
+
 //single dimension array
 //basic program
 class arrays1{
@@ -131,15 +130,77 @@ class array8 {
         int[] arr = {1, 2, 3, 4, 5};
 
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[i - 1]) {
-                System.out.println("unsorted");
-                return;
+            //if (arr[i] > arr[i - 1])
+              if(arr[i] < arr[i-1]){
+                System.out.println("sorted");
             }
         }
-        System.out.println("sorted");
+        System.out.println("unsorted");
     }
 }
 
+class array9{
+    public static void main(String[] args) {
+        int[] arr = {4, 2, 4, 5, 2, 7};
+        System.out.println(removeDuplicates(arr));
+        // Output: [4, 2, 5, 7]
+    }
+    public static List<Integer> removeDuplicates(int[] arr) {
+        HashSet<Integer> seen = new HashSet<>();   // remembers what we've already added
+        ArrayList<Integer> result = new ArrayList<>();  // holds our final unique elements
+        for (int num : arr) {
+            if (!seen.contains(num)) {   // if we've NEVER seen this number before
+                seen.add(num);           // mark it as seen
+                result.add(num);         // keep it in our answer
+            }
+            // if seen.contains(num) is true, we do nothing — it's a duplicate, skip it
+        }
+        return result;
+    }
+}
+
+
+//        Remove duplicates → return all unique values (each value once), keeping first occurrence.
+//        Find duplicates → return only values that occur 2+ times — the unique ones (appearing once) get excluded.
+
+//class Solution {
+//    public ArrayList<Integer> findDuplicates(int[] arr) {
+//        int maxVal = 0;
+//        for (int num : arr) {
+//            maxVal = Math.max(maxVal, num);
+//        }
+//
+//        int[] count = new int[maxVal + 1];   // count occurrences, not just boolean
+//        for (int num : arr) {
+//            count[num]++;
+//        }
+//
+//        ArrayList<Integer> result = new ArrayList<>();
+//        for (int num = 0; num <= maxVal; num++) {
+//            if (count[num] >= 2) {           // appeared more than once
+//                result.add(num);
+//            }
+//        }
+//        return result;
+//    }
+//}
+
+class array10 {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int temp = arr[0];  // Step 1: save the first element before it gets overwritten
+        // Step 2: shift every element one position to the left
+        for (int i = 1; i < arr.length; i++) {
+            arr[i - 1] = arr[i];
+        }
+        // Step 3: place the saved first element at the very end
+        arr[arr.length - 1] = temp;
+        // print result to verify
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
 
 
 
