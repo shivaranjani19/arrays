@@ -93,11 +93,13 @@ class array5 {
     }
 }
 
+//-------------------------------------------------------------------------------------------------------
+
 class array6{
     static void main(String[] args) {
         int arr[] = {10,19,20,30,17,24,6};
         int largest = arr[0];
-        for(int i = 0;i < arr.length-1;i++){
+        for(int i = 1;i < arr.length-1;i++){
             if(arr[i] > largest){
                 largest = arr[i];
             }
@@ -110,7 +112,7 @@ class array7{
     static void main(String[] args) {
         int arr[] ={1,2,3,4,5,6};
         int largest = arr[0];
-        for(int i=0;i<arr.length;i++){
+        for(int i=1;i<arr.length;i++){
             if(arr[i]>largest){
                 largest = arr[i];
             }
@@ -132,10 +134,10 @@ class array8 {
         for (int i = 1; i < arr.length; i++) {
             //if (arr[i] > arr[i - 1])
               if(arr[i] < arr[i-1]){
-                System.out.println("sorted");
+                System.out.println("unsorted");
             }
         }
-        System.out.println("unsorted");
+        System.out.println("sorted");
     }
 }
 
@@ -145,7 +147,7 @@ class array9{
         System.out.println(removeDuplicates(arr));
         // Output: [4, 2, 5, 7]
     }
-    public static List<Integer> removeDuplicates(int[] arr) {
+    static List<Integer> removeDuplicates(int[] arr) {
         HashSet<Integer> seen = new HashSet<>();   // remembers what we've already added
         ArrayList<Integer> result = new ArrayList<>();  // holds our final unique elements
         for (int num : arr) {
@@ -185,7 +187,7 @@ class array9{
 //    }
 //}
 
-
+// rotate by one - left
 class array10 {
     public static void main(String[] args) {
 //        int[] arr = {1, 2, 3, 4, 5};
@@ -228,7 +230,7 @@ class array10 {
             }
         }
 
-
+//duplicates - two pointers method
         class array11 {
             public static void main(String[] args) {
                 int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
@@ -247,3 +249,54 @@ class array10 {
                 }
             }
         }
+
+
+
+class Solution1111 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 0;
+        long sum = 0;
+        for (int i = 0; i < n; i++) {
+            int x = sc.nextInt();
+            if (x > 0 && (x & (x - 1)) == 0) {
+                count++;
+                sum += x;
+            }
+        }
+        System.out.println(count);
+        System.out.println(sum);
+    }
+}
+
+
+class MaxSubarraySum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();              // size of array
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();         // read each element
+        }
+
+        int currentSum = arr[0];           // running sum
+        int maxSum = arr[0];               // best sum found so far
+
+        for (int i = 1; i < n; i++) {
+            // Step 1: decide whether to extend or restart
+            if (currentSum + arr[i] > arr[i]) {
+                currentSum = currentSum + arr[i];  // extending is better
+            } else {
+                currentSum = arr[i];               // starting fresh is better
+            }
+
+            // Step 2: update the best answer seen so far
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+            }
+        }
+
+        System.out.println(maxSum);
+    }
+}
