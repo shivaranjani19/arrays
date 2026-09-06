@@ -187,23 +187,52 @@ class array9{
 //    }
 //}
 
+
+//duplicates - two pointers method
+class array11 {
+    public static void main(String[] args) {
+        int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        System.out.println("Count of unique elements: " + (i + 1));
+
+        System.out.print("Unique elements: ");
+        for (int k = 0; k <= i; k++) {
+            System.out.print(nums[k] + " ");
+        }
+    }
+}
+
 // rotate by one - left
 class array10 {
     public static void main(String[] args) {
-//        int[] arr = {1, 2, 3, 4, 5};
-//
-//        int temp = arr[0];              // save first element
-//        for (int i = 1; i < arr.length; i++) {
-//            arr[i - 1] = arr[i];        // shift each element left
-//        }
-//        arr[arr.length - 1] = temp;     // place saved element at end
-//
-//        for (int num : arr) {
-//            System.out.print(num + " ");
-//        }
+        int[] arr = {1, 2, 3, 4, 5};
 
-//        class Solution {
-//            public void rotate(int[] arr) {
+//        rotate(arr);
+//
+//        for (int x : arr) {
+//            System.out.print(x + " ");
+//        }
+//    }
+        int temp = arr[0];              // save first element
+        for (int i = 1; i < arr.length; i++) {
+            arr[i - 1] = arr[i];        // shift each element left
+        }
+        arr[arr.length - 1] = temp;     // place saved element at end
+
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+        //rotate by one - right
+//            public static void rotate(int[] arr) {
 //                int n = arr.length;
 //                int temp = arr[n - 1];              // save LAST element this time
 //
@@ -214,39 +243,27 @@ class array10 {
 //                arr[0] = temp;                       // place saved element at front
 //            }
 //        }
-                int[] arr = {1, 2, 3, 4, 5};
-                int n = arr.length;
 
-                int[] result = new int[n];      // extra array
 
-                for (int i = 0; i < n - 1; i++) {
-                    result[i] = arr[i + 1];     // shift left into new array
-                }
-                result[n - 1] = arr[0];         // first element goes to end
 
-                for (int num : result) {
-                    System.out.print(num + " ");
-                }
-            }
-        }
+//---------------------------------------------- using extraspace
 
-    //duplicates - two pointers method
-        class array11 {
-            public static void main(String[] args) {
-                int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-                int i = 0;
-                for (int j = 1; j < nums.length; j++) {
-                    if (nums[j] != nums[i]) {
-                        i++;
-                        nums[i] = nums[j];
-                    }
-                }
-                System.out.println("Count of unique elements: " + (i + 1));
 
-                System.out.print("Unique elements: ");
-                for (int k = 0; k <= i; k++) {
-                    System.out.print(nums[k] + " ");
-                }
-            }
-        }
+//                int[] arr = {1, 2, 3, 4, 5};
+//                int n = arr.length;
+//
+//                int[] result = new int[n];      // extra array
+//
+//                for (int i = 0; i < n - 1; i++) {
+//                    result[i] = arr[i + 1];     // shift left into new array
+//                }
+//                result[n - 1] = arr[0];         // first element goes to end
+//
+//                for (int num : result) {
+//                    System.out.print(num + " ");
+//                }
+//            }
+//        }
+
+
 
