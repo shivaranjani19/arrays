@@ -187,6 +187,27 @@ class array9{
 //    }
 //}
 
+
+//duplicates - two pointers method
+class array11 {
+    public static void main(String[] args) {
+        int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        System.out.println("Count of unique elements: " + (i + 1));
+
+        System.out.print("Unique elements: ");
+        for (int k = 0; k <= i; k++) {
+            System.out.print(nums[k] + " ");
+        }
+    }
+}
+
 // rotate by one - left
 class array10 {
     public static void main(String[] args) {
@@ -230,23 +251,5 @@ class array10 {
             }
         }
 
-    //duplicates - two pointers method
-        class array11 {
-            public static void main(String[] args) {
-                int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-                int i = 0;
-                for (int j = 1; j < nums.length; j++) {
-                    if (nums[j] != nums[i]) {
-                        i++;
-                        nums[i] = nums[j];
-                    }
-                }
-                System.out.println("Count of unique elements: " + (i + 1));
 
-                System.out.print("Unique elements: ");
-                for (int k = 0; k <= i; k++) {
-                    System.out.print(nums[k] + " ");
-                }
-            }
-        }
 
