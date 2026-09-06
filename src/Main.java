@@ -230,7 +230,7 @@ class array10 {
             }
         }
 
-//duplicates - two pointers method
+    //duplicates - two pointers method
         class array11 {
             public static void main(String[] args) {
                 int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
@@ -250,53 +250,3 @@ class array10 {
             }
         }
 
-
-
-class Solution1111 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int count = 0;
-        long sum = 0;
-        for (int i = 0; i < n; i++) {
-            int x = sc.nextInt();
-            if (x > 0 && (x & (x - 1)) == 0) {
-                count++;
-                sum += x;
-            }
-        }
-        System.out.println(count);
-        System.out.println(sum);
-    }
-}
-
-
-class MaxSubarraySum {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();              // size of array
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();         // read each element
-        }
-
-        int currentSum = arr[0];           // running sum
-        int maxSum = arr[0];               // best sum found so far
-
-        for (int i = 1; i < n; i++) {
-            // Step 1: decide whether to extend or restart
-            if (currentSum + arr[i] > arr[i]) {
-                currentSum = currentSum + arr[i];  // extending is better
-            } else {
-                currentSum = arr[i];               // starting fresh is better
-            }
-
-            // Step 2: update the best answer seen so far
-            if (currentSum > maxSum) {
-                maxSum = currentSum;
-            }
-        }
-
-        System.out.println(maxSum);
-    }
-}
