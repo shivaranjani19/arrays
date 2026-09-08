@@ -265,5 +265,37 @@ class array10 {
 //            }
 //        }
 
-
-
+//move zeroes to end
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int n = nums.length;
+        int[] temp = new int[n];
+        int index = 0;
+        // Copy non-zero elements
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != 0) {
+                temp[index] = nums[i];
+                index++;
+            }
+        }
+        // Copy temp back to nums
+        for (int i = 0; i < index; i++) {
+            nums[i] = temp[i];
+        }
+        // Fill remaining positions with zero
+        for (int i = index; i < n; i++) {
+            nums[i] = 0;
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        int[] nums = {0, 1, 0, 3, 12};
+        Solution sol = new Solution();
+        sol.moveZeroes(nums);
+        // Print result
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+}
